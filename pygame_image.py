@@ -11,12 +11,19 @@ def main():
     ton_img=pg.transform.flip(ton_img,True,False)
     ton_img2=pg.transform.rotozoom(ton_img,10,1.0)
     ton_lst=[ton_img , ton_img2]
+    
+
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0])
+        i=tmr%2
+        
+
+        screen.blit(ton_lst[i],[300,200])
+
         pg.display.update()
         tmr += 1        
         clock.tick(10)
