@@ -14,23 +14,26 @@ def main():
 
     ton_lst=[ton_img , ton_img2]
     
-
+    yoko=0
     tmr = 0
     angle_plus=0.1
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         ton_img3=pg.transform.rotozoom(ton_img,angle,1.0)
-
-        screen.blit(bg_img, [-(tmr%1600), 0])
+        yoko=-(tmr%1600)
+        screen.blit(bg_img, [yoko, 0])
         i=tmr%2
-        screen.blit(ton_lst[i],[300,200])
+        screen.blit(ton_img3,[300,200])
         pg.display.update()
         tmr += 1  
         angle+=angle_plus
         if angle>10 or angle<=0:  
             angle_plus*=-1
         clock.tick(100)
+        if yoko<-1599:
+            bg_img=pg.transform.flip(bg_img,True,False)
+
 
 
 if __name__ == "__main__":
