@@ -9,8 +9,8 @@ def main():
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg")
     ton_img=pg.image.load("ex01/fig/3.png")
     ton_img=pg.transform.flip(ton_img,True,False)
-    ton_img=pg.taransform.rotozoom(ton_img,10,1.0)
-    
+    ton_img2=pg.transform.rotozoom(ton_img,10,1.0)
+    ton_lst=[ton_img , ton_img2]
     tmr = 0
     while True:
         for event in pg.event.get():
